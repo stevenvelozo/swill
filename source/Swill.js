@@ -21,7 +21,7 @@ var Swill = function()
 		var libGulp = require('gulp');
 
 		// Default Settings
-		var _SettingsDefaults = require('./Swill-Settings-Defaults.js')((typeof(tmpSettings.SwillRoot) !== 'undefined') ? tmpSettings.SwillRoot : __dirname+'/../');
+		var _SettingsDefaults = require('./Swill-Settings-Defaults.js')((typeof(tmpSettings.SwillRoot) !== 'undefined') ? tmpSettings.SwillRoot : __dirname+'/../../../');
 
 		var _Fable = require('fable').new(tmpSettings);
 		// Merge in default settings
