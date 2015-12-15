@@ -1,2 +1,3 @@
-# swill
-Web build system for Retold
+# Swill
+
+Web build system for Retold, wrapping gulp.
