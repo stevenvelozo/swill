@@ -1,6 +1,6 @@
 {
   "name": "swill",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Swill Build Toolkit",
   "main": "source/Swill.js",
   "scripts": {
@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/stevenvelozo/swill",
   "devDependencies": {
+    "groc": "0.8.0"
+  },
+  "dependencies": {
     "chai": "3.4.1",
     "del": "2.2.0",
-    "groc": "0.8.0",
     "gulp": "3.9.0",
     "gulp-closure-compiler": "0.4.0",
     "gulp-concat": "2.6.0",
@@ -44,9 +46,7 @@
     "jshint-stylish": "2.1.0",
     "mocha": "2.3.4",
     "nodemon": "1.8.1",
-    "run-sequence": "1.1.5"
-  },
-  "dependencies": {
+    "run-sequence": "1.1.5",
     "async": "1.5.0",
     "fable": "~1.0.1",
     "orator": "~1.0.4"
