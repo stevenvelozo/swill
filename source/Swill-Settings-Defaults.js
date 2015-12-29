@@ -52,11 +52,26 @@ var createSettings = function(pRootFolder)
 		};
 
 	// CSS Less compilation
-	tmpSettings.CSS =
+	tmpSettings.LessCSS =
 			{
 				Source: tmpRootFolder+'less/theme.less',
 				SourceFiles: tmpRootFolder+'less/**/*.less',
 				Destination: tmpSettings.Build.Destination + 'css/'
+			};
+
+	// CSS Sass compilation
+	tmpSettings.SassCSS =
+			{
+				Source: tmpRootFolder+'sass/theme.scss',
+				SourceFiles: tmpRootFolder+'sass/**/*.scss',
+				Destination: tmpSettings.Build.Destination + 'css/'
+			};
+
+	// CSS Engine selection
+	tmpSettings.CSS =
+			{
+				Less: false,
+				Sass: false
 			};
 
 	// Script compilation for the Pict requirejs app

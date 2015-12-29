@@ -71,7 +71,7 @@ var watcherTasks = function(pFable)
 		'watch-livesite',
 		function()
 		{
-			pFable.gulp.watch([pFable.settings.CSS.SourceFiles, pFable.settings.Site.Source, pFable.settings.Site.Scripts], ['lint', 'less-debug', 'site-copy-debug', 'asset-copy']);
+			pFable.gulp.watch([pFable.settings.LessCSS.SourceFiles, pFable.settings.SassCSS.SourceFiles, pFable.settings.Site.Source, pFable.settings.Site.Scripts], ['lint', 'less-debug', 'sass-debug', 'site-copy-debug', 'asset-copy']);
 		}
 	);
 

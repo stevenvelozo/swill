@@ -16,7 +16,7 @@ var metaTasks = function(pFable)
 	pFable.gulp.task
 	(
 		'build',
-		['less', 'site-copy', 'asset-copy', 'dependencies', 'scriptcompile']
+		['less', 'sass', 'site-copy', 'asset-copy', 'dependencies', 'scriptcompile']
 	);
 
 	// ### TASK: Clean, then build and stage the full application
@@ -39,7 +39,7 @@ var metaTasks = function(pFable)
 	pFable.gulp.task
 	(
 		'build-debug',
-		['less-debug', 'site-copy-debug', 'asset-copy', 'dependencies-debug', 'scriptcompile-debug']
+		['less-debug', 'sass-debug', 'site-copy-debug', 'asset-copy', 'dependencies-debug', 'scriptcompile-debug']
 	);
 };
 

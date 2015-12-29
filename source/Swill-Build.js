@@ -4,6 +4,7 @@
 * @author <steven@velozo.com>
 */
 var libLess = require('gulp-less');
+var libSass = require('gulp-sass');
 var libMinifyCSS = require('gulp-minify-css');
 
 // For building the single-page web app
@@ -37,19 +38,20 @@ var buildTasks = function(pFable)
 		'less',
 		function ()
 		{
-			pFable.gulp.src(pFable.settings.CSS.Source)
-				.pipe(libLess())
-				.pipe(libMinifyCSS
-						(
-						{
-							// * for keeping all (default), 1 for keeping first one, 0 for removing all
-							keepSpecialComments: 0,
-							keepBreaks: false,
-							removeEmpty: true,
-							debug: false
-						}
-						))
-				.pipe(pFable.gulp.dest(pFable.settings.CSS.Destination));
+			if (pFable.settings.CSS.Less)
+				pFable.gulp.src(pFable.settings.LessCSS.Source)
+					.pipe(libLess())
+					.pipe(libMinifyCSS
+							(
+							{
+								// * for keeping all (default), 1 for keeping first one, 0 for removing all
+								keepSpecialComments: 0,
+								keepBreaks: false,
+								removeEmpty: true,
+								debug: false
+							}
+							))
+					.pipe(pFable.gulp.dest(pFable.settings.LessCSS.Destination));
 		}
 	);
 
@@ -59,18 +61,64 @@ var buildTasks = function(pFable)
 		'less-debug',
 		function ()
 		{
-			pFable.gulp.src(pFable.settings.CSS.Source)
-				.pipe(libLess())
-			.on
-				(
-					'error',
-					function(pError)
-					{
-						console.log('Something blew up during Less CSS compilation.');
-						console.log('Error: '+pError);
-					}
-				)
-				.pipe(pFable.gulp.dest(pFable.settings.CSS.Destination));
+			if (pFable.settings.CSS.Less)
+				pFable.gulp.src(pFable.settings.LessCSS.Source)
+					.pipe(libLess())
+					.on
+					(
+						'error',
+						function(pError)
+						{
+							console.log('Something blew up during Less CSS compilation.');
+							console.log('Error: '+pError);
+						}
+					)
+					.pipe(pFable.gulp.dest(pFable.settings.LessCSS.Destination));
+		}
+	);
+
+	// ### TASK: Compile CSS with the sass compiler and minify
+	pFable.gulp.task
+	(
+		'sass',
+		function ()
+		{
+			if (pFable.settings.CSS.Sass)
+				pFable.gulp.src(pFable.settings.SassCSS.Source)
+					.pipe(libSass())
+					.pipe(libMinifyCSS
+							(
+							{
+								// * for keeping all (default), 1 for keeping first one, 0 for removing all
+								keepSpecialComments: 0,
+								keepBreaks: false,
+								removeEmpty: true,
+								debug: false
+							}
+							))
+					.pipe(pFable.gulp.dest(pFable.settings.SassCSS.Destination));
+		}
+	);
+
+	// ### TASK: Compile CSS with the sass compiler
+	pFable.gulp.task
+	(
+		'sass-debug',
+		function ()
+		{
+			if (pFable.settings.CSS.Sass)
+				pFable.gulp.src(pFable.settings.SassCSS.Source)
+					.pipe(libSass())
+				.on
+					(
+						'error',
+						function(pError)
+						{
+							console.log('Something blew up during SASS CSS compilation.');
+							console.log('Error: '+pError);
+						}
+					)
+					.pipe(pFable.gulp.dest(pFable.settings.SassCSS.Destination));
 		}
 	);
 
