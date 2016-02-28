@@ -1,6 +1,6 @@
 {
   "name": "swill",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Swill Build Toolkit",
   "main": "source/Swill.js",
   "scripts": {
@@ -22,7 +22,13 @@
   },
   "homepage": "https://github.com/stevenvelozo/swill",
   "devDependencies": {
-    "groc": "0.8.0"
+    "browserify": "^13.0.0",
+    "groc": "0.8.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "async": "1.5.0",

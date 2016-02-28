@@ -37,6 +37,7 @@ var Swill = function()
 		require('./Swill-Build.js')(_Fable);
 		require('./Swill-Meta.js')(_Fable);
 		require('./Swill-Watchers.js')(_Fable);
+		require('./Swill-Compile.js')(_Fable);
 
 
 		// Define the default task for gulp

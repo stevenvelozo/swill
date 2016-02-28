@@ -36,6 +36,15 @@ var createSettings = function(pRootFolder)
 			};
 
 
+	// Compilation (browserify)
+	tmpSettings.Compilation = 
+			{
+				EntryPoint: tmpRootFolder+'source/Main.js',
+				Destination: tmpRootFolder+'stage/js/',
+				DestinationScript: 'Compiled.js'
+			};
+
+
 	// Global build locations
 	tmpSettings.Build =
 			{
